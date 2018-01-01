@@ -94,8 +94,7 @@ sub get_file_realpath {
     my $file = shift;
 
     if (-d 'blib') {
-        my $realpath = $file;
-        $realpath =~ s/blib\/lib/lib/;
+        my $realpath = $file =~ s/blib\/lib/lib/r;
 
         return $realpath if -f $realpath;
     }
